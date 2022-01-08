@@ -1,4 +1,5 @@
 //ignore_for_file: unnecessary_new,prefer_const_constructors,avoid_unnecessary_containers,sized_box_for_whitespace
+import 'package:beercafe_ui/signinpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,6 +32,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  get child => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,8 +105,21 @@ class _HomeState extends State<Home> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        buttonWidget("Sign In", Colors.black, Colors.white),
-                        buttonWidget("Sign Up", Colors.white, Colors.black)
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignInPage()));
+                          },
+                          child: buttonWidget(
+                              "Sign In", Colors.black, Colors.white),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: buttonWidget(
+                              "Sign Up", Colors.white, Colors.black),
+                        ),
                       ],
                     ),
                   )
