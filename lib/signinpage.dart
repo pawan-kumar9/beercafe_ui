@@ -1,6 +1,6 @@
 //ignore_for_file: avoid_unnecessary_containers,prefer_const_constructors,prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -67,44 +67,133 @@ class _SignInPageState extends State<SignInPage> {
           ),
           Expanded(
             child: Container(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
               decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30.0),
                     topRight: Radius.circular(30.0),
                   ),
                   color: Colors.white),
-              child: Column(
-                children: [
-                  TextField(
-                      decoration: InputDecoration(
-                    labelText: 'Username',
-                    fillColor: Colors.blue,
-                  )),
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      fillColor: Colors.grey,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10.0, bottom: 20.0),
-                    alignment: Alignment.centerRight,
-                    child: Text("Forgot Password?"),
-                  ),
-                  buttonsWidget("Sign In", Colors.black, Colors.white),
-                  SizedBox(height: 80),
-                  SignInButton(
-                    Buttons.Google,
-                    onPressed: () {},
-                    text: "Continue with Google",
-                  ),
-                  SignInButton(
-                    Buttons.Facebook,
-                    onPressed: () {},
-                    text: "Continue with Facebook",
-                  ),
-                ],
+                    TextField(
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40.0),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 0.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40.0),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 0.0),
+                          ),
+                          filled: true,
+                          hintStyle: TextStyle(color: Colors.grey[800]),
+                          hintText: "Username",
+                          fillColor: Colors.grey.shade200),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40.0),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 0.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40.0),
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 0.0),
+                          ),
+                          filled: true,
+                          hintStyle: TextStyle(color: Colors.grey[800]),
+                          hintText: "Password",
+                          fillColor: Colors.grey.shade200),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Container(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "Forgot Password?",
+                          style: TextStyle(color: Colors.black54),
+                        ),
+                      ),
+                    ),
+                    buttonsWidget("Sign In", Colors.black, Colors.white),
+                    SizedBox(height: 60),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          padding: const EdgeInsets.all(5.0),
+                          elevation: 1.0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          SvgPicture.asset("assets/googleIcon.svg"),
+                          Text(
+                            "Continue with Google",
+                            style:
+                                TextStyle(fontSize: 18.0, color: Colors.black),
+                          ),
+                          Icon(
+                            Icons.arrow_right_alt,
+                            color: Colors.black,
+                          )
+                        ],
+                      ),
+                      onPressed: () {},
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          padding: const EdgeInsets.all(5.0),
+                          elevation: 1.0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          )),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          SvgPicture.asset("assets/facebookIcon.svg"),
+                          Text(
+                            "Continue with Facebook",
+                            style:
+                                TextStyle(fontSize: 18.0, color: Colors.black),
+                          ),
+                          Icon(
+                            Icons.arrow_right_alt,
+                            color: Colors.black,
+                          )
+                        ],
+                      ),
+                      onPressed: () {},
+                    ),
+                    // SignInButton(
+                    //   Buttons.Google,
+                    //   onPressed: () {},
+                    //   text: "Continue with Google",
+                    // ),
+                    // SignInButton(
+                    //   Buttons.Facebook,
+                    //   onPressed: () {},
+                    //   text: "Continue with Facebook",
+                    // ),
+                  ],
+                ),
               ),
             ),
           ),
