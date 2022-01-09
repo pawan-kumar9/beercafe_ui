@@ -182,16 +182,6 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       onPressed: () {},
                     ),
-                    // SignInButton(
-                    //   Buttons.Google,
-                    //   onPressed: () {},
-                    //   text: "Continue with Google",
-                    // ),
-                    // SignInButton(
-                    //   Buttons.Facebook,
-                    //   onPressed: () {},
-                    //   text: "Continue with Facebook",
-                    // ),
                   ],
                 ),
               ),
